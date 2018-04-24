@@ -136,8 +136,8 @@ When we create an application, the response include client_id/client_secret, it 
 
 We use two way to authenticate with oauth.
 
-- [Client Credentials](##Client-Credentials)
-- [Authorization Code](##Authorization-Code)
+- [Client Credentials](#client-credentials)
+- [Authorization Code](#authorization-code)
 
 ## Client Credentials
 
