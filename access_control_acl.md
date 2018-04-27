@@ -146,3 +146,9 @@ After I add the group 'dev' to consumer 'test', it also can visit the two apis.
 ## Conclusion
 
 We can user acl plugin and one auth plugin to control the access in kong.
+
+## Advance
+
+We can specified the secret of jwt.
+Maybe we can set all consumers have the same secret, the kong can decode the jwt by the secret, the iss(key) is different, so kong know which consumer it is.
+If all the secret is same, we can put more info in jwt.
