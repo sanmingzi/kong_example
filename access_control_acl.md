@@ -143,6 +143,36 @@ When we use the jwt of the consumer 'dev', it can visit both the two apis.
 
 After I add the group 'dev' to consumer 'test', it also can visit the two apis.
 
+## Expire
+
+The JWT plugin support the expire feature.
+
+```
+curl -X PATCH http://kong:8001//plugins/{jwt plugin id} \
+    --data "config.claims_to_verify=exp"
+```
+
+After we update the config of jwt plugin, we should add expire time into the json-web-token.
+The 'exp' should be a unix timestamp integer(second). The jwt plugin will check the exp column.
+
+```
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+
+{
+  "iss": "2ySARDGStXpRmy5bAalEqqWb5jWspLZx",
+  "exp": 1525241832
+}
+
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  your-256-bit-secret
+)
+```
+
 ## Conclusion
 
 We can user acl plugin and one auth plugin to control the access in kong.
